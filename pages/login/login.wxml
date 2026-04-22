@@ -1,6 +1,6 @@
 <view class="login-container">
   <view class="logo-section">
-    <image class="logo" src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=car%20ride%20sharing%20app%20logo%20simple%20modern%20blue&image_size=square" mode="aspectFit"></image>
+    <image class="logo" src="https://placehold.co/120x120/1890ff/FFFFFF?text=顺风" mode="aspectFit"></image>
     <text class="app-name">顺风车</text>
     <text class="slogan">便捷出行，绿色共享</text>
   </view>
@@ -66,7 +66,7 @@
 
     <view class="other-login">
       <button class="wx-login-btn" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
-        <image class="wx-icon" src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=wechat%20icon%20simple%20green&image_size=square" mode="aspectFit"></image>
+        <image class="wx-icon" src="https://placehold.co/40x40/07C160/FFFFFF?text=微" mode="aspectFit"></image>
         微信登录
       </button>
     </view>

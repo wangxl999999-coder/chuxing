@@ -5,7 +5,7 @@ const mockUsers = [
     id: 'user1',
     nickname: '顺风车主小王',
     phone: '13800138001',
-    avatar: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=friendly%20male%20avatar%20portrait%20young%20man%20smiling&image_size=square',
+    avatar: 'https://placehold.co/100x100/1890ff/FFFFFF?text=王',
     vehicle: {
       plateNumber: '京A12345',
       brand: '大众',
@@ -18,7 +18,7 @@ const mockUsers = [
     id: 'user2',
     nickname: '滴滴李师傅',
     phone: '13800138002',
-    avatar: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=friendly%20male%20avatar%20portrait%20middle%20aged%20man&image_size=square',
+    avatar: 'https://placehold.co/100x100/52c41a/FFFFFF?text=李',
     vehicle: {
       plateNumber: '沪B67890',
       brand: '丰田',
@@ -31,7 +31,7 @@ const mockUsers = [
     id: 'user3',
     nickname: '顺风美女车主',
     phone: '13800138003',
-    avatar: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=friendly%20female%20avatar%20portrait%20young%20woman%20smiling&image_size=square',
+    avatar: 'https://placehold.co/100x100/eb2f96/FFFFFF?text=女',
     vehicle: {
       plateNumber: '粤C11111',
       brand: '宝马',
@@ -119,7 +119,7 @@ const promotionData = {
   totalOrders: 32,
   inviteCount: 15,
   todayIncome: 56.8,
-  qrcode: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=QR%20code%20simple%20black%20and%20white&image_size=square',
+  qrcode: 'https://placehold.co/200x200/000000/FFFFFF?text=QR',
   history: [
     { date: '2024-01-15', user: '张三', commission: 25.5, orderCount: 3 },
     { date: '2024-01-14', user: '李四', commission: 18.0, orderCount: 2 },

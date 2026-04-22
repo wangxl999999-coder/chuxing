@@ -79,7 +79,7 @@ Page({
         id: 'user_' + util.generateId(),
         phone: phone,
         nickname: '用户' + phone.slice(-4),
-        avatar: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=default%20user%20avatar%20simple%20circle&image_size=square'
+        avatar: 'https://placehold.co/100x100/1890ff/FFFFFF?text=用'
       }
       
       const app = getApp()
@@ -122,7 +122,7 @@ Page({
         id: 'user_' + util.generateId(),
         phone: phone,
         nickname: '用户' + phone.slice(-4),
-        avatar: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=default%20user%20avatar%20simple%20circle&image_size=square'
+        avatar: 'https://placehold.co/100x100/1890ff/FFFFFF?text=用'
       }
       
       const app = getApp()

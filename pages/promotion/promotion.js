@@ -58,14 +58,14 @@ Page({
     return {
       title: '快来一起用顺风车，出行更省钱！',
       path: '/pages/index/index',
-      imageUrl: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=car%20ride%20sharing%20share%20banner%20blue%20invitation&image_size=portrait_16_9'
+      imageUrl: 'https://placehold.co/500x400/1890ff/FFFFFF?text=顺风车出行'
     }
   },
 
   onShareTimeline() {
     return {
       title: '顺风车 - 便捷出行，绿色共享',
-      imageUrl: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=car%20ride%20sharing%20share%20banner%20blue%20invitation&image_size=portrait_16_9'
+      imageUrl: 'https://placehold.co/500x400/1890ff/FFFFFF?text=顺风车出行'
     }
   }
 })
