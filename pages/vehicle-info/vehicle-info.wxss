@@ -1,0 +1,144 @@
+.vehicle-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 180rpx;
+}
+
+.vehicle-section {
+  padding: 20rpx 30rpx;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.edit-btn {
+  font-size: 28rpx;
+  color: #1890ff;
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 0 24rpx;
+  overflow: hidden;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 0;
+}
+
+.form-label {
+  font-size: 30rpx;
+  color: #333;
+  width: 180rpx;
+  flex-shrink: 0;
+}
+
+.form-input {
+  flex: 1;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #333;
+  text-align: right;
+}
+
+.form-input::placeholder {
+  color: #ccc;
+}
+
+.form-input:disabled {
+  color: #666;
+  background: transparent;
+}
+
+.form-value-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.form-value {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.form-arrow {
+  font-size: 36rpx;
+  color: #ccc;
+  margin-left: 8rpx;
+}
+
+.form-divider {
+  height: 1rpx;
+  background: #f0f0f0;
+}
+
+.tips-section {
+  padding: 0 30rpx;
+}
+
+.tips-card {
+  background: #fffbe6;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+.tips-title {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #faad14;
+  margin-bottom: 16rpx;
+}
+
+.tips-content {
+  display: block;
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.8;
+}
+
+.action-section {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 24rpx;
+  padding: 20rpx 30rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background: #fff;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.cancel-btn,
+.save-btn {
+  flex: 1;
+  height: 88rpx;
+  font-size: 30rpx;
+  border-radius: 44rpx;
+}
+
+.cancel-btn {
+  border: 2rpx solid #d9d9d9;
+  color: #666;
+  background: #fff;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  color: #fff;
+  border: none;
+}

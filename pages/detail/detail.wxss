@@ -1,0 +1,372 @@
+.detail-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 180rpx;
+}
+
+.user-section {
+  padding: 20rpx 30rpx;
+}
+
+.user-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  background: #f0f0f0;
+}
+
+.user-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.nickname {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.vehicle-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 22rpx;
+  color: #1890ff;
+  background: #e6f7ff;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  margin-right: 10rpx;
+  margin-bottom: 8rpx;
+}
+
+.contact-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100rpx;
+  height: 80rpx;
+  background: #f0f7ff;
+  border-radius: 12rpx;
+  border: none;
+  padding: 0;
+  line-height: 1;
+}
+
+.contact-icon {
+  font-size: 32rpx;
+  margin-bottom: 4rpx;
+}
+
+.contact-text {
+  font-size: 22rpx;
+  color: #1890ff;
+}
+
+.route-section {
+  padding: 0 30rpx 20rpx;
+}
+
+.route-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+.route-item {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.route-dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+.start-dot {
+  background: #1890ff;
+}
+
+.end-dot {
+  background: #52c41a;
+}
+
+.route-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.location-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.location-distance {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.route-connector {
+  display: flex;
+  align-items: center;
+  padding-left: 8rpx;
+}
+
+.connector-line {
+  width: 2rpx;
+  height: 32rpx;
+  background: #e8e8e8;
+  margin-left: 1rpx;
+}
+
+.connector-icon {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 12rpx;
+}
+
+.info-section {
+  padding: 0 30rpx 20rpx;
+}
+
+.info-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 0 24rpx;
+  overflow: hidden;
+}
+
+.info-row {
+  padding: 24rpx 0;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+}
+
+.info-icon {
+  font-size: 32rpx;
+  margin-right: 16rpx;
+}
+
+.info-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.info-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.seats-value {
+  color: #333;
+}
+
+.seats-available {
+  color: #52c41a;
+  font-size: 36rpx;
+}
+
+.seats-total {
+  color: #999;
+}
+
+.info-divider {
+  height: 1rpx;
+  background: #f0f0f0;
+}
+
+.booking-section {
+  padding: 0 30rpx 20rpx;
+}
+
+.booking-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+.booking-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.booking-row {
+  margin-bottom: 20rpx;
+}
+
+.seat-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  background: #f7f8fa;
+  border-radius: 12rpx;
+}
+
+.seat-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.seat-value-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.seat-value {
+  font-size: 30rpx;
+  color: #1890ff;
+  font-weight: 500;
+}
+
+.seat-arrow {
+  font-size: 32rpx;
+  color: #ccc;
+  margin-left: 8rpx;
+}
+
+.price-summary {
+  background: #fffbe6;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12rpx 0;
+}
+
+.price-row.total {
+  border-top: 1rpx dashed #faad14;
+  margin-top: 12rpx;
+  padding-top: 20rpx;
+}
+
+.price-label {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.price-value {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.total-value {
+  font-size: 36rpx;
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.agreement-section {
+  padding: 0 30rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+.agreement-text {
+  color: #999;
+}
+
+.agreement-link {
+  color: #1890ff;
+}
+
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background: #fff;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.price-display {
+  display: flex;
+  align-items: baseline;
+}
+
+.price-prefix {
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 8rpx;
+}
+
+.price-amount {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #ff4d4f;
+}
+
+.book-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280rpx;
+  height: 88rpx;
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  color: #fff;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  border: none;
+  line-height: 1;
+}
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #999;
+}

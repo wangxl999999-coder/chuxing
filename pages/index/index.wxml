@@ -1,0 +1,109 @@
+<view class="index-container">
+  <view class="search-section">
+    <view class="search-card">
+      <view class="location-row">
+        <view class="location-item">
+          <view class="location-dot start-dot"></view>
+          <input 
+            class="location-input" 
+            placeholder="输入出发地" 
+            value="{{start}}"
+            bindinput="onStartInput"
+            bindfocus="onChooseLocation"
+            data-type="start"
+          ></input>
+        </view>
+        <view class="swap-btn" bindtap="swapLocation">
+          <text class="swap-icon">↔</text>
+        </view>
+        <view class="location-item">
+          <view class="location-dot end-dot"></view>
+          <input 
+            class="location-input" 
+            placeholder="输入目的地" 
+            value="{{end}}"
+            bindinput="onEndInput"
+            bindfocus="onChooseLocation"
+            data-type="end"
+          ></input>
+        </view>
+      </view>
+
+      <view class="divider"></view>
+
+      <view class="extra-row">
+        <view class="date-picker" bindtap="onDateTap">
+          <text class="date-icon">📅</text>
+          <text class="date-text">{{dateText}}</text>
+        </view>
+        <button class="search-btn" bindtap="handleSearch">
+          <text class="search-icon">🔍</text>
+          搜索
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <picker 
+    mode="date" 
+    value="{{date}}" 
+    start="{{date}}" 
+    bindchange="onDateChange"
+    wx:if="{{showDatePicker}}"
+  >
+  </picker>
+
+  <view class="content-section">
+    <view class="section" wx:if="{{recentSearches.length > 0}}">
+      <view class="section-header">
+        <text class="section-title">常用路线</text>
+        <text class="clear-btn" bindtap="clearRecentSearches">清空</text>
+      </view>
+      <view class="recent-list">
+        <view class="recent-item" wx:for="{{recentSearches}}" wx:key="time" bindtap="onQuickSearch" data-start="{{item.start}}" data-end="{{item.end}}">
+          <view class="recent-content">
+            <text class="recent-start">{{item.start}}</text>
+            <text class="recent-arrow">→</text>
+            <text class="recent-end">{{item.end}}</text>
+          </view>
+          <text class="recent-time">{{item.time ? util.formatTime(new Date(item.time)).date : ''}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title">推荐路线</text>
+        <text class="section-desc">热门出发地和目的地</text>
+      </view>
+      <view class="popular-grid">
+        <view class="popular-item" wx:for="{{popularRoutes}}" wx:key="start" bindtap="onQuickSearch" data-start="{{item.start}}" data-end="{{item.end}}">
+          <view class="popular-info">
+            <view class="popular-route">
+              <text class="popular-start">{{item.start}}</text>
+              <text class="popular-arrow">→</text>
+              <text class="popular-end">{{item.end}}</text>
+            </view>
+            <text class="popular-count">{{item.count}}人最近查询</text>
+          </view>
+          <text class="popular-arrow-right">›</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="quick-actions">
+      <view class="quick-action-item">
+        <view class="action-icon">🚗</view>
+        <text class="action-text">我是车主</text>
+      </view>
+      <view class="quick-action-item">
+        <view class="action-icon">👥</view>
+        <text class="action-text">找人拼车</text>
+      </view>
+      <view class="quick-action-item">
+        <view class="action-icon">📦</view>
+        <text class="action-text">寄快递</text>
+      </view>
+    </view>
+  </view>
+</view>
