@@ -46,10 +46,23 @@ Page({
 
   checkLoginStatus() {
     const app = getApp()
+    const userInfo = app.globalData.userInfo
+    let maskedPhone = ''
+    
+    if (userInfo && userInfo.phone) {
+      maskedPhone = this.maskPhone(userInfo.phone)
+    }
+    
     this.setData({
-      userInfo: app.globalData.userInfo,
-      isLoggedIn: app.globalData.isLoggedIn
+      userInfo: userInfo,
+      isLoggedIn: app.globalData.isLoggedIn,
+      maskedPhone: maskedPhone || '未绑定'
     })
+  },
+
+  maskPhone(phone) {
+    if (!phone) return ''
+    return phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')
   },
 
   onAvatarTap() {

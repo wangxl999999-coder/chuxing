@@ -39,7 +39,7 @@
   <view class="price-section">
     <view class="price-row">
       <text class="price-label">单价</text>
-      <text class="price-value">¥{{ride?.fee}}/座</text>
+      <text class="price-value">¥{{ride.fee}}/座</text>
     </view>
     <view class="price-row">
       <text class="price-label">数量</text>
