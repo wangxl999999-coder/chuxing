@@ -1,0 +1,114 @@
+<view class="list-container">
+  <view class="search-bar">
+    <view class="search-card">
+      <view class="location-row">
+        <view class="location-item">
+          <view class="location-dot start-dot"></view>
+          <input 
+            class="location-input" 
+            placeholder="出发地" 
+            value="{{start}}"
+            bindinput="onStartInput"
+            bindfocus="onChooseStart"
+          ></input>
+        </view>
+        
+        <view class="swap-btn" bindtap="swapLocation">
+          <text class="swap-icon">↔</text>
+        </view>
+        
+        <view class="location-item">
+          <view class="location-dot end-dot"></view>
+          <input 
+            class="location-input" 
+            placeholder="目的地" 
+            value="{{end}}"
+            bindinput="onEndInput"
+            bindfocus="onChooseEnd"
+          ></input>
+        </view>
+      </view>
+
+      <view class="filter-row">
+        <view class="date-filter" bindtap="onDateTap">
+          <text class="date-text">{{date}}</text>
+          <text class="filter-arrow">›</text>
+        </view>
+        <button class="search-btn" bindtap="handleSearch">搜索</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="ride-list">
+    <view class="ride-card" wx:for="{{rides}}" wx:key="id" bindtap="onRideTap" data-id="{{item.id}}">
+      <view class="ride-header">
+        <view class="user-info">
+          <image class="avatar" src="{{item.publisher.avatar}}" mode="aspectFill"></image>
+          <view class="user-detail">
+            <text class="nickname">{{item.publisher.nickname}}</text>
+            <view class="vehicle-info">
+              <text class="tag">{{item.vehicle.brand}} {{item.vehicle.model}}</text>
+              <text class="vehicle-color">{{item.vehicle.color}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="ride-time">
+          <text class="time-value">{{item.formattedDate}}</text>
+        </view>
+      </view>
+
+      <view class="ride-body">
+        <view class="route-section">
+          <view class="route-item">
+            <view class="route-dot start-dot"></view>
+            <view class="route-content">
+              <text class="location-name">{{item.start.name}}</text>
+              <text class="location-distance">距我 {{item.startDistance}}</text>
+            </view>
+          </view>
+          <view class="route-line"></view>
+          <view class="route-item">
+            <view class="route-dot end-dot"></view>
+            <view class="route-content">
+              <text class="location-name">{{item.end.name}}</text>
+              <text class="location-distance">距我 {{item.endDistance}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="ride-info">
+          <view class="info-item">
+            <text class="info-label">座位</text>
+            <text class="info-value seats-value">
+              <text class="seats-available">{{item.availableSeats}}</text>
+              <text class="seats-total">/{{item.seats}}座</text>
+            </text>
+          </view>
+          <view class="info-item">
+            <text class="info-label">费用</text>
+            <text class="info-value price-value">¥{{item.fee}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="ride-footer">
+        <view class="remark-section" wx:if="{{item.remark}}">
+          <text class="remark-text">📝 {{item.remark}}</text>
+        </view>
+        <button class="book-btn" catchtap="onBookTap" data-id="{{item.id}}">
+          立即预订
+        </button>
+      </view>
+    </view>
+
+    <view class="empty-state" wx:if="{{rides.length === 0 && !loading}}">
+      <text class="empty-icon">🚗</text>
+      <text class="empty-text">暂无拼车信息</text>
+      <text class="empty-desc">换个时间或地点试试吧</text>
+    </view>
+
+    <view class="loading-state" wx:if="{{loading}}">
+      <text class="loading-text">加载中...</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,81 @@
+<view class="login-container">
+  <view class="logo-section">
+    <image class="logo" src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=car%20ride%20sharing%20app%20logo%20simple%20modern%20blue&image_size=square" mode="aspectFit"></image>
+    <text class="app-name">顺风车</text>
+    <text class="slogan">便捷出行，绿色共享</text>
+  </view>
+
+  <view class="form-section">
+    <view class="input-group">
+      <text class="input-label">手机号</text>
+      <input 
+        class="input-field" 
+        type="number" 
+        placeholder="请输入手机号" 
+        value="{{phone}}" 
+        bindinput="onPhoneInput"
+        maxlength="11"
+      ></input>
+    </view>
+
+    <view class="input-group code-group" wx:if="{{isRegister}}">
+      <text class="input-label">验证码</text>
+      <view class="code-input-wrap">
+        <input 
+          class="input-field code-input" 
+          type="number" 
+          placeholder="请输入验证码" 
+          value="{{code}}" 
+          bindinput="onCodeInput"
+          maxlength="6"
+        ></input>
+        <button 
+          class="code-btn {{countDown > 0 ? 'disabled' : ''}}" 
+          bindtap="getCode"
+          disabled="{{countDown > 0}}"
+        >{{codeText}}</button>
+      </view>
+    </view>
+
+    <view class="input-group">
+      <text class="input-label">密码</text>
+      <input 
+        class="input-field" 
+        type="password" 
+        placeholder="请输入密码" 
+        value="{{password}}" 
+        bindinput="onPasswordInput"
+      ></input>
+    </view>
+
+    <button class="btn-primary btn-block submit-btn" bindtap="handleSubmit">
+      {{isRegister ? '注册' : '登录'}}
+    </button>
+
+    <view class="toggle-link">
+      <text wx:if="{{!isRegister}}">还没有账号？</text>
+      <text wx:else>已有账号？</text>
+      <text class="link-text" bindtap="toggleMode">{{isRegister ? '立即登录' : '立即注册'}}</text>
+    </view>
+
+    <view class="divider-section">
+      <view class="divider-line"></view>
+      <text class="divider-text">其他方式</text>
+      <view class="divider-line"></view>
+    </view>
+
+    <view class="other-login">
+      <button class="wx-login-btn" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+        <image class="wx-icon" src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=wechat%20icon%20simple%20green&image_size=square" mode="aspectFit"></image>
+        微信登录
+      </button>
+    </view>
+  </view>
+
+  <view class="agreement">
+    <text class="agreement-text">登录即表示同意</text>
+    <text class="agreement-link">《用户协议》</text>
+    <text class="agreement-text">和</text>
+    <text class="agreement-link">《隐私政策》</text>
+  </view>
+</view>

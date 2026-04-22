@@ -1,0 +1,126 @@
+<view class="vehicle-container">
+  <view class="vehicle-section">
+    <view class="section-header">
+      <text class="section-title">车辆信息</text>
+      <text class="edit-btn" bindtap="onEditTap" wx:if="{{!isEdit}}">编辑</text>
+    </view>
+    
+    <view class="form-card">
+      <view class="form-item">
+        <text class="form-label">车牌号</text>
+        <input 
+          class="form-input" 
+          placeholder="请输入车牌号" 
+          value="{{vehicle.plateNumber}}"
+          bindinput="onInputChange"
+          data-field="plateNumber"
+          disabled="{{!isEdit}}"
+          maxlength="10"
+        ></input>
+      </view>
+
+      <view class="form-divider"></view>
+
+      <view class="form-item">
+        <text class="form-label">车辆品牌</text>
+        <input 
+          class="form-input" 
+          placeholder="如：大众、丰田" 
+          value="{{vehicle.brand}}"
+          bindinput="onInputChange"
+          data-field="brand"
+          disabled="{{!isEdit}}"
+        ></input>
+      </view>
+
+      <view class="form-divider"></view>
+
+      <view class="form-item">
+        <text class="form-label">车辆型号</text>
+        <input 
+          class="form-input" 
+          placeholder="如：朗逸、卡罗拉" 
+          value="{{vehicle.model}}"
+          bindinput="onInputChange"
+          data-field="model"
+          disabled="{{!isEdit}}"
+        ></input>
+      </view>
+
+      <view class="form-divider"></view>
+
+      <view class="form-item">
+        <text class="form-label">车辆颜色</text>
+        <input 
+          class="form-input" 
+          placeholder="如：白色、黑色" 
+          value="{{vehicle.color}}"
+          bindinput="onInputChange"
+          data-field="color"
+          disabled="{{!isEdit}}"
+        ></input>
+      </view>
+
+      <view class="form-divider"></view>
+
+      <view class="form-item">
+        <text class="form-label">座位数</text>
+        <picker 
+          mode="selector" 
+          range="{{seatOptions}}" 
+          value="{{vehicle.seats}}"
+          bindchange="onSeatsChange"
+          disabled="{{!isEdit}}"
+        >
+          <view class="form-value-wrap">
+            <text class="form-value">{{vehicle.seats}}座</text>
+            <text class="form-arrow" wx:if="{{isEdit}}">›</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="form-divider"></view>
+
+      <view class="form-item">
+        <text class="form-label">车主姓名</text>
+        <input 
+          class="form-input" 
+          placeholder="请输入车主姓名" 
+          value="{{vehicle.ownerName}}"
+          bindinput="onInputChange"
+          data-field="ownerName"
+          disabled="{{!isEdit}}"
+        ></input>
+      </view>
+
+      <view class="form-divider"></view>
+
+      <view class="form-item">
+        <text class="form-label">身份证号</text>
+        <input 
+          class="form-input" 
+          placeholder="请输入身份证号" 
+          value="{{vehicle.ownerIdCard}}"
+          bindinput="onInputChange"
+          data-field="ownerIdCard"
+          disabled="{{!isEdit}}"
+          maxlength="18"
+        ></input>
+      </view>
+    </view>
+  </view>
+
+  <view class="tips-section">
+    <view class="tips-card">
+      <text class="tips-title">📋 温馨提示</text>
+      <text class="tips-content">1. 请确保车辆信息真实有效</text>
+      <text class="tips-content">2. 车辆信息将用于拼车展示</text>
+      <text class="tips-content">3. 完善的信息有助于提高接单率</text>
+    </view>
+  </view>
+
+  <view class="action-section" wx:if="{{isEdit}}">
+    <button class="btn-outline cancel-btn" bindtap="onEditTap">取消</button>
+    <button class="btn-primary save-btn" bindtap="handleSave">保存</button>
+  </view>
+</view>

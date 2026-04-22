@@ -1,0 +1,161 @@
+.help-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 40rpx;
+}
+
+.search-section {
+  padding: 20rpx 30rpx;
+  background: #fff;
+}
+
+.search-wrap {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 24rpx;
+  background: #f7f8fa;
+  border-radius: 40rpx;
+}
+
+.search-icon {
+  font-size: 28rpx;
+  margin-right: 12rpx;
+}
+
+.search-input {
+  flex: 1;
+  height: 56rpx;
+  font-size: 28rpx;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.quick-section {
+  padding: 30rpx;
+}
+
+.quick-header {
+  margin-bottom: 20rpx;
+}
+
+.quick-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.quick-row {
+  display: flex;
+  gap: 20rpx;
+}
+
+.quick-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+}
+
+.quick-icon {
+  font-size: 56rpx;
+  margin-bottom: 16rpx;
+}
+
+.quick-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.faq-section {
+  padding: 0 30rpx;
+}
+
+.faq-header {
+  margin-bottom: 20rpx;
+}
+
+.faq-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.faq-list {
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.faq-item {
+  padding: 28rpx 24rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.question-text {
+  font-size: 30rpx;
+  color: #333;
+  flex: 1;
+}
+
+.question-arrow {
+  font-size: 40rpx;
+  color: #1890ff;
+  margin-left: 16rpx;
+}
+
+.faq-answer {
+  padding: 20rpx 0 0;
+}
+
+.answer-text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.8;
+}
+
+.footer-section {
+  padding: 30rpx;
+  margin-top: 40rpx;
+}
+
+.footer-card {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border-radius: 16rpx;
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-title {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 16rpx;
+}
+
+.footer-phone {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8rpx;
+}
+
+.footer-time {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.7);
+}

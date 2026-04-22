@@ -1,0 +1,97 @@
+<view class="trips-container">
+  <view class="tab-bar">
+    <view 
+      class="tab-item {{activeTab === item.id ? 'active' : ''}}" 
+      wx:for="{{tabs}}" 
+      wx:key="id"
+      bindtap="onTabChange"
+      data-id="{{item.id}}"
+    >
+      <text class="tab-text">{{item.title}}</text>
+      <view class="tab-indicator" wx:if="{{activeTab === item.id}}"></view>
+    </view>
+  </view>
+
+  <view class="trip-list" wx:if="{{activeTab === 'booked'}}">
+    <view class="trip-card" wx:for="{{bookedTrips}}" wx:key="rideId" bindtap="onTripTap" data-id="{{item.rideId}}">
+      <view class="trip-header">
+        <view class="route-info">
+          <text class="location-name">{{item.ride.start.name}}</text>
+          <text class="route-arrow">→</text>
+          <text class="location-name">{{item.ride.end.name}}</text>
+        </view>
+        <text class="status-badge {{item.statusClass}}">{{item.statusText}}</text>
+      </view>
+      
+      <view class="trip-body">
+        <view class="info-item">
+          <text class="info-label">出发时间</text>
+          <text class="info-value">{{item.formattedDate}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">预订座位</text>
+          <text class="info-value">{{item.seats}}座</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">车主</text>
+          <text class="info-value">{{item.ride.publisher.nickname}}</text>
+        </view>
+      </view>
+      
+      <view class="trip-footer">
+        <text class="order-time">预订时间：{{util.formatTime(new Date(item.bookTime)).full}}</text>
+      </view>
+    </view>
+
+    <view class="empty-state" wx:if="{{bookedTrips.length === 0 && !loading}}">
+      <text class="empty-icon">📋</text>
+      <text class="empty-text">暂无预定的行程</text>
+      <text class="empty-desc">快去搜索拼车信息吧</text>
+    </view>
+  </view>
+
+  <view class="trip-list" wx:if="{{activeTab === 'published'}}">
+    <view class="trip-card" wx:for="{{publishedTrips}}" wx:key="id" bindtap="onTripTap" data-id="{{item.id}}">
+      <view class="trip-header">
+        <view class="route-info">
+          <text class="location-name">{{item.start.name}}</text>
+          <text class="route-arrow">→</text>
+          <text class="location-name">{{item.end.name}}</text>
+        </view>
+        <text class="status-badge {{item.statusClass}}">{{item.statusText}}</text>
+      </view>
+      
+      <view class="trip-body">
+        <view class="info-item">
+          <text class="info-label">出发时间</text>
+          <text class="info-value">{{item.formattedDate}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">剩余座位</text>
+          <text class="info-value seats-value">
+            <text class="seats-available">{{item.availableSeats}}</text>
+            <text class="seats-total">/{{item.seats}}座</text>
+          </text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">费用</text>
+          <text class="info-value price-value">¥{{item.fee}}/座</text>
+        </view>
+      </view>
+      
+      <view class="trip-footer">
+        <text class="order-time">发布时间：{{util.formatTime(new Date(item.createTime)).full}}</text>
+      </view>
+    </view>
+
+    <view class="empty-state" wx:if="{{publishedTrips.length === 0 && !loading}}">
+      <text class="empty-icon">🚗</text>
+      <text class="empty-text">暂无发布的行程</text>
+      <text class="empty-desc">点击底部"发布"按钮发布拼车信息</text>
+    </view>
+  </view>
+
+  <view class="loading-state" wx:if="{{loading}}">
+    <text class="loading-text">加载中...</text>
+  </view>
+</view>

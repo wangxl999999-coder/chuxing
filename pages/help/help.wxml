@@ -1,0 +1,56 @@
+<view class="help-container">
+  <view class="search-section">
+    <view class="search-wrap">
+      <text class="search-icon">🔍</text>
+      <input class="search-input" placeholder="搜索问题" />
+    </view>
+  </view>
+
+  <view class="quick-section">
+    <view class="quick-header">
+      <text class="quick-title">快速入口</text>
+    </view>
+    <view class="quick-row">
+      <view class="quick-item" bindtap="onContactTap">
+        <text class="quick-icon">📞</text>
+        <text class="quick-text">联系客服</text>
+      </view>
+      <view class="quick-item" bindtap="onFeedbackTap">
+        <text class="quick-icon">💬</text>
+        <text class="quick-text">意见反馈</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="faq-section">
+    <view class="faq-header">
+      <text class="faq-title">常见问题</text>
+    </view>
+    
+    <view class="faq-list">
+      <view 
+        class="faq-item {{expandedIndex === index ? 'expanded' : ''}}" 
+        wx:for="{{helpList}}" 
+        wx:key="question"
+        bindtap="onItemTap"
+        data-index="{{index}}"
+      >
+        <view class="faq-question">
+          <text class="question-text">{{item.question}}</text>
+          <text class="question-arrow">{{expandedIndex === index ? '−' : '+'}}</text>
+        </view>
+        <view class="faq-answer" wx:if="{{expandedIndex === index}}">
+          <text class="answer-text">{{item.answer}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer-section">
+    <view class="footer-card">
+      <text class="footer-title">📞 客服热线</text>
+      <text class="footer-phone">400-123-4567</text>
+      <text class="footer-time">工作时间：9:00 - 18:00</text>
+    </view>
+  </view>
+</view>

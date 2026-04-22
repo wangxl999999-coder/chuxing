@@ -1,0 +1,137 @@
+<view class="pay-container" wx:if="{{!showResult}}">
+  <view class="order-summary" wx:if="{{ride}}">
+    <view class="summary-header">
+      <text class="summary-title">订单详情</text>
+    </view>
+    
+    <view class="route-info">
+      <view class="route-item">
+        <view class="route-dot start-dot"></view>
+        <text class="location-name">{{ride.start.name}}</text>
+      </view>
+      <view class="route-arrow">↓</view>
+      <view class="route-item">
+        <view class="route-dot end-dot"></view>
+        <text class="location-name">{{ride.end.name}}</text>
+      </view>
+    </view>
+    
+    <view class="info-list">
+      <view class="info-item">
+        <text class="info-label">出发时间</text>
+        <text class="info-value">{{ride.formattedDate}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">车主</text>
+        <text class="info-value">{{ride.publisher.nickname}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">车辆</text>
+        <text class="info-value">{{ride.vehicle.brand}} {{ride.vehicle.model}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">预订座位</text>
+        <text class="info-value">{{seats}}座</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="price-section">
+    <view class="price-row">
+      <text class="price-label">单价</text>
+      <text class="price-value">¥{{ride?.fee}}/座</text>
+    </view>
+    <view class="price-row">
+      <text class="price-label">数量</text>
+      <text class="price-value">{{seats}}座</text>
+    </view>
+    <view class="price-row total">
+      <text class="price-label">应付金额</text>
+      <text class="price-amount">¥{{totalAmount}}</text>
+    </view>
+  </view>
+
+  <view class="pay-method-section">
+    <view class="section-header">
+      <text class="section-title">选择支付方式</text>
+    </view>
+    
+    <view class="method-list">
+      <view 
+        class="method-item {{payMethod === 'wechat' ? 'active' : ''}}" 
+        bindtap="onPayMethodChange"
+        data-method="wechat"
+      >
+        <view class="method-icon wx-icon">
+          <text class="icon-text">💚</text>
+        </view>
+        <view class="method-info">
+          <text class="method-name">微信支付</text>
+          <text class="method-desc">推荐使用</text>
+        </view>
+        <view class="radio {{payMethod === 'wechat' ? 'checked' : ''}}">
+          <text class="radio-icon" wx:if="{{payMethod === 'wechat'}}">✓</text>
+        </view>
+      </view>
+      
+      <view 
+        class="method-item {{payMethod === 'balance' ? 'active' : ''}}" 
+        bindtap="onPayMethodChange"
+        data-method="balance"
+      >
+        <view class="method-icon balance-icon">
+          <text class="icon-text">💰</text>
+        </view>
+        <view class="method-info">
+          <text class="method-name">余额支付</text>
+          <text class="method-desc">可用余额: ¥0.00</text>
+        </view>
+        <view class="radio {{payMethod === 'balance' ? 'checked' : ''}}">
+          <text class="radio-icon" wx:if="{{payMethod === 'balance'}}">✓</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="total-display">
+      <text class="total-label">应付：</text>
+      <text class="total-amount">¥{{totalAmount}}</text>
+    </view>
+    <button class="pay-btn" bindtap="handlePay" loading="{{paying}}">
+      确认支付
+    </button>
+  </view>
+</view>
+
+<view class="result-container" wx:if="{{showResult}}">
+  <view class="result-icon {{paySuccess ? 'success' : 'error'}}">
+    <text class="icon-text">{{paySuccess ? '✓' : '✗'}}</text>
+  </view>
+  
+  <view class="result-content">
+    <text class="result-title">{{paySuccess ? '支付成功' : '支付失败'}}</text>
+    <text class="result-desc" wx:if="{{paySuccess}}">您的订单已确认，请准时到达上车点</text>
+    <text class="result-desc" wx:else>支付未完成，请稍后重试</text>
+  </view>
+
+  <view class="order-info" wx:if="{{paySuccess && ride}}">
+    <view class="info-row">
+      <text class="info-label">订单金额</text>
+      <text class="info-value">¥{{totalAmount}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">路线</text>
+      <text class="info-value">{{ride.start.name}} → {{ride.end.name}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">出发时间</text>
+      <text class="info-value">{{ride.formattedDate}}</text>
+    </view>
+  </view>
+
+  <view class="action-buttons">
+    <button class="btn-outline secondary-btn" bindtap="backToHome">返回首页</button>
+    <button class="btn-primary primary-btn" wx:if="{{paySuccess}}" bindtap="viewMyTrips">查看我的行程</button>
+  </view>
+</view>

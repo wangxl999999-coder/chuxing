@@ -1,0 +1,205 @@
+.publish-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 180rpx;
+}
+
+.form-section {
+  padding: 20rpx 30rpx;
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 0 24rpx;
+  overflow: hidden;
+}
+
+.location-group {
+  padding: 24rpx 0;
+  position: relative;
+}
+
+.location-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.location-dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+.start-dot {
+  background: #1890ff;
+}
+
+.end-dot {
+  background: #52c41a;
+}
+
+.location-input {
+  flex: 1;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.location-input::placeholder {
+  color: #ccc;
+}
+
+.location-arrow {
+  font-size: 36rpx;
+  color: #ccc;
+}
+
+.swap-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60rpx;
+  height: 60rpx;
+  background: #f0f7ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swap-icon {
+  font-size: 28rpx;
+  color: #1890ff;
+}
+
+.form-row {
+  display: flex;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 0;
+}
+
+.form-item-textarea {
+  padding: 28rpx 0;
+}
+
+.form-label {
+  font-size: 30rpx;
+  color: #333;
+  width: 180rpx;
+  flex-shrink: 0;
+}
+
+.form-value-wrap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.form-value {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.form-arrow {
+  font-size: 36rpx;
+  color: #ccc;
+  margin-left: 8rpx;
+}
+
+.form-input {
+  flex: 1;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #333;
+  text-align: right;
+}
+
+.form-input::placeholder {
+  color: #ccc;
+}
+
+.price-input {
+  color: #ff4d4f;
+}
+
+.form-textarea {
+  width: 100%;
+  min-height: 120rpx;
+  margin-top: 16rpx;
+  padding: 16rpx;
+  background: #f7f8fa;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.textarea-count {
+  text-align: right;
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.form-divider {
+  height: 1rpx;
+  background: #f0f0f0;
+}
+
+.form-header {
+  margin-bottom: 16rpx;
+}
+
+.form-title {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.agreement-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16rpx 0;
+}
+
+.agreement-checkbox {
+  margin-right: 12rpx;
+}
+
+.agreement-text {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.agreement-link {
+  font-size: 26rpx;
+  color: #1890ff;
+}
+
+.submit-section {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20rpx 30rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background: #fff;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.submit-btn {
+  height: 96rpx;
+  font-size: 34rpx;
+  border-radius: 48rpx;
+}

@@ -1,0 +1,100 @@
+<view class="promotion-container" wx:if="{{promotionData}}">
+  <view class="header-section">
+    <view class="header-bg"></view>
+    <view class="header-content">
+      <text class="header-title">我的推广</text>
+      <view class="stats-row">
+        <view class="stat-item">
+          <text class="stat-value">{{promotionData.totalCommission}}</text>
+          <text class="stat-label">累计佣金(元)</text>
+        </view>
+        <view class="stat-divider"></view>
+        <view class="stat-item">
+          <text class="stat-value">{{promotionData.totalOrders}}</text>
+          <text class="stat-label">有效订单</text>
+        </view>
+        <view class="stat-divider"></view>
+        <view class="stat-item">
+          <text class="stat-value">{{promotionData.inviteCount}}</text>
+          <text class="stat-label">邀请人数</text>
+        </view>
+      </view>
+      <view class="today-income">
+        <text class="income-label">今日收益</text>
+        <text class="income-value">¥{{promotionData.todayIncome}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-section">
+    <view class="action-row">
+      <button class="action-item" bindtap="onWithdrawTap">
+        <text class="action-icon">💳</text>
+        <text class="action-text">提现</text>
+      </button>
+      <button class="action-item" bindtap="onShowQRCode">
+        <text class="action-icon">📱</text>
+        <text class="action-text">我的二维码</text>
+      </button>
+      <button class="action-item" open-type="share">
+        <text class="action-icon">📤</text>
+        <text class="action-text">立即分享</text>
+      </button>
+    </view>
+  </view>
+
+  <view class="rules-section">
+    <view class="rules-card">
+      <view class="rules-header">
+        <text class="rules-title">📋 推广规则</text>
+      </view>
+      <view class="rules-list">
+        <text class="rules-item">1. 邀请好友注册并完成首单，您将获得奖励</text>
+        <text class="rules-item">2. 好友每次成功发布或预定行程，您都可获得佣金</text>
+        <text class="rules-item">3. 佣金比例：订单金额的5%作为推广奖励</text>
+        <text class="rules-item">4. 佣金可提现到微信钱包，最低提现金额10元</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="history-section">
+    <view class="section-header">
+      <text class="section-title">推广记录</text>
+    </view>
+    <view class="history-card">
+      <view class="history-item" wx:for="{{promotionData.history}}" wx:key="date">
+        <view class="history-left">
+          <text class="history-date">{{item.date}}</text>
+          <text class="history-user">{{item.user}}</text>
+        </view>
+        <view class="history-right">
+          <text class="history-commission">+¥{{item.commission}}</text>
+          <text class="history-orders">{{item.orderCount}}单</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{promotionData.history.length === 0}}">
+    <text class="empty-icon">📊</text>
+    <text class="empty-text">暂无推广记录</text>
+    <text class="empty-desc">快去邀请好友一起赚钱吧</text>
+  </view>
+</view>
+
+<view class="qrcode-modal" wx:if="{{showQRCode}}" catchtap="onHideQRCode">
+  <view class="qrcode-content" catchtap="">
+    <view class="qrcode-header">
+      <text class="qrcode-title">我的推广二维码</text>
+      <text class="close-btn" catchtap="onHideQRCode">✕</text>
+    </view>
+    <view class="qrcode-img-wrap">
+      <image class="qrcode-img" src="{{promotionData.qrcode}}" mode="aspectFit"></image>
+    </view>
+    <text class="qrcode-tip">扫描二维码即可注册成为新用户</text>
+    <text class="qrcode-subtip">新用户完成首单后，您将获得奖励</text>
+    <button class="save-btn" bindtap="onShareTap">
+      分享给好友
+    </button>
+  </view>
+</view>
