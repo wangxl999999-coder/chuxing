@@ -6,7 +6,6 @@
     "pages/detail/detail",
     "pages/pay/pay",
     "pages/login/login",
-    "pages/register/register",
     "pages/mine/mine",
     "pages/my-trips/my-trips",
     "pages/vehicle-info/vehicle-info",
@@ -27,21 +26,15 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "assets/images/home.png",
-        "selectedIconPath": "assets/images/home-active.png"
+        "text": "首页"
       },
       {
         "pagePath": "pages/publish/publish",
-        "text": "发布",
-        "iconPath": "assets/images/publish.png",
-        "selectedIconPath": "assets/images/publish-active.png"
+        "text": "发布"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的",
-        "iconPath": "assets/images/mine.png",
-        "selectedIconPath": "assets/images/mine-active.png"
+        "text": "我的"
       }
     ]
   },
