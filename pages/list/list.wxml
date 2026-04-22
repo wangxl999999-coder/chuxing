@@ -31,11 +31,65 @@
 
       <view class="filter-row">
         <view class="date-filter" bindtap="onDateTap">
+          <text class="date-icon">📅</text>
           <text class="date-text">{{date}}</text>
-          <text class="filter-arrow">›</text>
+        </view>
+        <view class="filter-btn" bindtap="onFilterTap">
+          <text class="filter-icon">⚙️</text>
+          <text class="filter-text">筛选</text>
         </view>
         <button class="search-btn" bindtap="handleSearch">搜索</button>
       </view>
+    </view>
+  </view>
+
+  <view class="filter-panel" wx:if="{{showFilter}}">
+    <view class="filter-header">
+      <text class="filter-title">筛选条件</text>
+      <text class="reset-btn" bindtap="resetFilter">重置</text>
+    </view>
+    
+    <view class="filter-section">
+      <text class="filter-label">最少座位数</text>
+      <picker mode="selector" range="{{[1,2,3,4,5]}}" bindchange="onMinSeatsChange">
+        <view class="filter-picker">
+          <text class="filter-value">{{minSeats}}座</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+    
+    <view class="filter-section">
+      <text class="filter-label">最高价格</text>
+      <input 
+        class="filter-input" 
+        type="number" 
+        placeholder="请输入最高价格" 
+        value="{{maxFee}}"
+        bindinput="onMaxFeeInput"
+      ></input>
+    </view>
+    
+    <view class="filter-section">
+      <text class="filter-label">排序方式</text>
+      <radio-group bindchange="onSortChange">
+        <view class="radio-item">
+          <radio value="time" checked="{{sortBy === 'time'}}" color="#1890ff"></radio>
+          <text class="radio-text">按时间排序</text>
+        </view>
+        <view class="radio-item">
+          <radio value="price" checked="{{sortBy === 'price'}}" color="#1890ff"></radio>
+          <text class="radio-text">按价格排序</text>
+        </view>
+        <view class="radio-item">
+          <radio value="distance" checked="{{sortBy === 'distance'}}" color="#1890ff"></radio>
+          <text class="radio-text">按距离排序</text>
+        </view>
+      </radio-group>
+    </view>
+    
+    <view class="filter-actions">
+      <button class="apply-btn" bindtap="applyFilter">应用筛选</button>
     </view>
   </view>
 
@@ -95,9 +149,15 @@
         <view class="remark-section" wx:if="{{item.remark}}">
           <text class="remark-text">📝 {{item.remark}}</text>
         </view>
-        <button class="book-btn" catchtap="onBookTap" data-id="{{item.id}}">
-          立即预订
-        </button>
+        <view class="action-buttons">
+          <button class="contact-btn" catchtap="onContactTap" data-phone="{{item.publisher.phone}}">
+            <text class="contact-icon">📞</text>
+            <text class="contact-text">联系</text>
+          </button>
+          <button class="book-btn" catchtap="onBookTap" data-id="{{item.id}}">
+            立即预订
+          </button>
+        </view>
       </view>
     </view>
 

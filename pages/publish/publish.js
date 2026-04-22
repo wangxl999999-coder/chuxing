@@ -62,12 +62,12 @@ Page({
     if (app.globalData.lastPublish) {
       const { start, end } = app.globalData.lastPublish
       this.setData({
-        start: start?.name || '',
-        startLat: start?.lat || 39.9042,
-        startLng: start?.lng || 116.4074,
-        end: end?.name || '',
-        endLat: end?.lat || 40.0799,
-        endLng: end?.lng || 116.6031
+        start: start && start.name ? start.name : '',
+        startLat: start && start.lat ? start.lat : 39.9042,
+        startLng: start && start.lng ? start.lng : 116.4074,
+        end: end && end.name ? end.name : '',
+        endLat: end && end.lat ? end.lat : 40.0799,
+        endLng: end && end.lng ? end.lng : 116.6031
       })
     }
     
@@ -217,7 +217,7 @@ Page({
       return false
     }
     
-    if (!seats <= 0) {
+    if (seats <= 0) {
       util.showToast('请选择座位数')
       return false
     }
