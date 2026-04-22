@@ -191,7 +191,8 @@ Page({
     const field = e.currentTarget.dataset.field
     const value = e.detail.value
     this.setData({
-      [`vehicle.${field}`: value })
+      [`vehicle.${field}`]: value 
+    })
   },
 
   validateForm() {
