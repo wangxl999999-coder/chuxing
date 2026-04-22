@@ -128,6 +128,7 @@ const throttle = (fn, delay = 500) => {
 
 module.exports = {
   formatTime,
+  formatNumber,
   formatDate,
   calculateDistance,
   generateId,
