@@ -127,8 +127,13 @@ Page({
   },
 
   onShareAppMessage() {
+    const ride = this.data.ride
+    let title = '顺风车出行'
+    if (ride && ride.start && ride.end) {
+      title = `从${ride.start.name}到${ride.end.name}的顺风车`
+    }
     return {
-      title: `从${this.data.ride?.start.name}到${this.data.ride?.end.name}的顺风车`,
+      title: title,
       path: `/pages/detail/detail?id=${this.data.rideId}`
     }
   }

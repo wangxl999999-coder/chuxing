@@ -8,7 +8,11 @@ Page({
     date: '',
     rides: [],
     loading: false,
-    userLocation: null
+    userLocation: null,
+    showFilter: false,
+    minSeats: 1,
+    maxFee: '',
+    sortBy: 'time'
   },
 
   onLoad(options) {
@@ -39,7 +43,7 @@ Page({
     this.setData({ loading: true })
     
     setTimeout(() => {
-      const { start, end, date, userLocation } = this.data
+      const { start, end, date, userLocation, minSeats, maxFee, sortBy } = this.data
       
       let filters = {}
       if (start) filters.start = start
@@ -47,6 +51,32 @@ Page({
       if (date) filters.date = date
       
       let rides = mockData.getRides(filters)
+      
+      if (minSeats > 1) {
+        rides = rides.filter(ride => ride.availableSeats >= minSeats)
+      }
+      
+      if (maxFee && parseFloat(maxFee) > 0) {
+        rides = rides.filter(ride => ride.fee <= parseFloat(maxFee))
+      }
+      
+      if (sortBy === 'price') {
+        rides = rides.sort((a, b) => a.fee - b.fee)
+      } else if (sortBy === 'distance') {
+        if (userLocation) {
+          rides = rides.sort((a, b) => {
+            const distA = util.calculateDistance(
+              userLocation.latitude, userLocation.longitude, a.start.lat, a.start.lng
+            )
+            const distB = util.calculateDistance(
+              userLocation.latitude, userLocation.longitude, b.start.lat, b.start.lng
+            )
+            return parseFloat(distA) - parseFloat(distB)
+          })
+        }
+      } else {
+        rides = rides.sort((a, b) => new Date(a.departureTime) - new Date(b.departureTime))
+      }
       
       rides = rides.map(ride => {
         const formattedDate = util.formatDate(ride.departureTime)
@@ -155,5 +185,48 @@ Page({
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 1000)
+  },
+
+  onFilterTap() {
+    this.setData({ showFilter: !this.data.showFilter })
+  },
+
+  onMinSeatsChange(e) {
+    this.setData({ minSeats: parseInt(e.detail.value) })
+  },
+
+  onMaxFeeInput(e) {
+    this.setData({ maxFee: e.detail.value })
+  },
+
+  onSortChange(e) {
+    this.setData({ sortBy: e.detail.value })
+  },
+
+  applyFilter() {
+    this.setData({ showFilter: false })
+    this.loadRides()
+  },
+
+  resetFilter() {
+    this.setData({
+      minSeats: 1,
+      maxFee: '',
+      sortBy: 'time',
+      showFilter: false
+    })
+    this.loadRides()
+  },
+
+  onContactTap(e) {
+    const { phone } = e.currentTarget.dataset
+    if (phone) {
+      wx.makePhoneCall({
+        phoneNumber: phone,
+        fail: () => {
+          util.showToast('无法拨打电话')
+        }
+      })
+    }
   }
 })

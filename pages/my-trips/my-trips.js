@@ -37,7 +37,7 @@ Page({
     this.setData({ loading: true })
     
     const app = getApp()
-    const userId = app.globalData.userInfo?.id
+    const userId = app.globalData.userInfo && app.globalData.userInfo.id ? app.globalData.userInfo.id : ''
     
     setTimeout(() => {
       const myTrips = mockData.getMyTrips(userId)
