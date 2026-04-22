@@ -40,7 +40,7 @@ Page({
 
   checkLogin() {
     const app = getApp()
-    if (!app.globalData.isLoggedIn) {
+    if (app.globalData.isLoggedIn) {
       const userInfo = app.globalData.userInfo
       if (userInfo) {
         this.setData({ phone: userInfo.phone || '' })
