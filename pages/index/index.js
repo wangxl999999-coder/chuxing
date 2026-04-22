@@ -29,7 +29,17 @@ Page({
 
   loadRecentSearches() {
     const recentSearches = mockData.getRecentSearches()
-    this.setData({ recentSearches })
+    const formatted = recentSearches.map(item => {
+      let formattedDate = ''
+      if (item.time) {
+        formattedDate = util.formatTime(new Date(item.time)).date
+      }
+      return {
+        ...item,
+        formattedDate
+      }
+    })
+    this.setData({ recentSearches: formatted })
   },
 
   setDefaultDate() {

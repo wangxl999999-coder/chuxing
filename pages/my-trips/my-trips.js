@@ -45,6 +45,7 @@ Page({
       const published = myTrips.published.map(ride => ({
         ...ride,
         formattedDate: util.formatDate(ride.departureTime),
+        formattedCreateTime: util.formatTime(new Date(ride.createTime)).full,
         statusText: ride.status === 'active' ? '进行中' : '已完成',
         statusClass: ride.status === 'active' ? 'active' : 'completed'
       }))
@@ -52,6 +53,7 @@ Page({
       const booked = myTrips.booked.map(item => ({
         ...item,
         formattedDate: util.formatDate(item.ride.departureTime),
+        formattedBookTime: util.formatTime(new Date(item.bookTime)).full,
         statusText: '已预订',
         statusClass: 'booked'
       }))

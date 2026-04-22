@@ -39,7 +39,7 @@
       </view>
       
       <view class="trip-footer">
-        <text class="order-time">预订时间：{{util.formatTime(new Date(item.bookTime)).full}}</text>
+        <text class="order-time">预订时间：{{item.formattedBookTime}}</text>
       </view>
     </view>
 
@@ -80,7 +80,7 @@
       </view>
       
       <view class="trip-footer">
-        <text class="order-time">发布时间：{{util.formatTime(new Date(item.createTime)).full}}</text>
+        <text class="order-time">发布时间：{{item.formattedCreateTime}}</text>
       </view>
     </view>
 
